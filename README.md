@@ -51,6 +51,7 @@ Assembly Drawing:  <br/>
  <h2>CODE , OUTPUT AND PICTURE OF THE WORK:</h2>
 - <b>Code</b>
 <img src="https://i.imgur.com/7Z4ZR3c.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+ (See the Code File)
 Code report:
 This code controls a parking system using an ultrasonic sensor, an IR receiver, and a buzzer. It
 measures the distance between an object and the sensor and only allows access when the object is
