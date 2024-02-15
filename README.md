@@ -64,7 +64,8 @@ noTone() functions.<br/>
 
 Initial Display: <br/>
 <img src="https://i.imgur.com/5HvyPzZ.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
-Initial State: Waiting for User Input:
+
+Initial State: Waiting for User Input:<br/>
 In this state, the parking system is waiting for the user to initiate the parking process. The ultrasonic
 sensor is constantly monitoring the distance between the sensor and any nearby objects. When the distance is less than or equal to 5 cm, the LCD display shows a message that says "Hello, please press any
 button" and the background color is set to light blue. This indicates to the user that they should use the
