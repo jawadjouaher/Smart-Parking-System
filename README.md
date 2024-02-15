@@ -50,68 +50,7 @@ Assembly Drawing:  <br/>
 <br />
  <h2>CODE , OUTPUT AND PICTURE OF THE WORK:</h2>
 - <b>Code</b>
-#include <IRremote.h>
-#include "rgb_lcd.h"
-#include "SR04.h"
-#define TRIG_PIN 2
-#define ECHO_PIN 3
-#define IR_PIN 5
-#define BUZZER_PIN 3
-SR04 sr04 = SR04(ECHO_PIN, TRIG_PIN);
-IRrecv irrecv(IR_PIN);
-decode_results results;
-rgb_lcd lcd;
-bool is_allowed = false;
-unsigned long start_time = 0;
-void setup() {
-Serial.begin(9600);
-irrecv.enableIRIn(); // enable IR receiver
-lcd.begin(16, 2);
-lcd.setRGB(255, 255, 255); // set background to white
-noTone(BUZZER_PIN); // turn off the buzzer
-}
-void loop() {
-long distance = sr04.Distance();
-Serial.print(distance);
-Serial.println(" cm");
-if (distance <= 5) {
-if (!is_allowed) {
-lcd.setCursor(0, 0);
-lcd.print("Hello, please");
-lcd.setCursor(0, 1);
-lcd.print("Press button");
-lcd.setRGB(0, 191, 255); // set background to light blue
-}
-// Wait for IR signal
-if (irrecv.decode(&results)) {
-is_allowed = true;
-start_time = millis();
-lcd.setRGB(0, 255, 0); // set background to green
-lcd.clear();
-lcd.print("Allowed :)");
-tone(BUZZER_PIN, 1000, 500); // make a sound of 1000 Hz for 500 milliseconds
-irrecv.resume(); // receive the next IR signal
-}
-} else {
-unsigned long elapsed_time = millis() - start_time;
-if (elapsed_time > 6000) {
-is_allowed = false;
-lcd.setRGB(255, 0, 0); // set background to red
-lcd.clear();
-lcd.print("Not Allowed");
-tone(BUZZER_PIN, 500, 9000); // make an alarm sound of 500 Hz for 9 seconds
-delay(3000); // Wait 3 seconds before displaying "Hello, please Press any button" message
-lcd.setRGB(0, 191, 255); // set background to light blue
-lcd.clear();
-lcd.setCursor(0, 0);
-lcd.print("Hello, please");
-lcd.setCursor(0, 1);
-lcd.print("Press button");
-noTone(BUZZER_PIN); // turn off the buzzer
-}
-}
-delay(100);
-}
+<img src="https://i.imgur.com/7Z4ZR3c.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
 Code report:
 This code controls a parking system using an ultrasonic sensor, an IR receiver, and a buzzer. It
 measures the distance between an object and the sensor and only allows access when the object is
@@ -122,7 +61,7 @@ IR receiver and the SR04 library for the ultrasonic sensor. The buzzer is contro
 noTone() functions.<br/>
 
 Initial Display: <br/>
-<img src="https://i.imgur.com/5HvyPzZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/5HvyPzZ.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
 Initial State: Waiting for User Input:
 In this state, the parking system is waiting for the user to initiate the parking process. The ultrasonic
 sensor is constantly monitoring the distance between the sensor and any nearby objects. When the distance is less than or equal to 5 cm, the LCD display shows a message that says "Hello, please press any
@@ -130,7 +69,7 @@ button" and the background color is set to light blue. This indicates to the use
 remote control to signal that they want to park their vehicle.<br />
 <br />
 Unauthorized Access Attempt:  <br/>
-<img src="https://i.imgur.com/iaGbsOS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/iaGbsOS.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
 
 In this state, the parking system detects that a vehicle has approached the parking space, but the user
 has not pressed any buttons on the remote control. This means that the vehicle is not authorized to park
@@ -139,7 +78,7 @@ set to red to indicate that the user should not attempt to park in the space. Ad
 is played through the buzzer to further discourage unauthorized access.<br />
 <br />
 Authorized Access:  <br/>
-<img src="https://i.imgur.com/VfatlaM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/VfatlaM.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
 In this state, the parking system detects that a vehicle has approached the parking space and the user
 has signalled that they want to park by pressing a button on the remote control. The LCD display shows
 a message that says "Allowed :)" and the background color is set to green to indicate that the user is
