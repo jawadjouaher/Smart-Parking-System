@@ -17,7 +17,23 @@ The project should successfully create a secure and convenient parking system th
 when an unauthorized access attempt is made. The system can be customized according to specific
 needs, making it a useful and practical solution for parking management.
 <br />
+<h2>PART LIST</h2>
 
+- <b>We used the following components:
+• Arduino UNO Wi-Fi Rev 2
+• Base Shield
+• Grove LCD Display
+• Grove Buzzer
+• IR Receiver Elegoo
+• Ultrasonic Sensor Elegoo
+Breadboard
+• Wires </b> 
+
+
+<h2>Languages and Utilities Used</h2>
+
+- <b>PowerShell</b> 
+- <b>Diskpart</b>
 
 <h2>Languages and Utilities Used</h2>
 
