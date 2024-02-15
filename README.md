@@ -81,6 +81,7 @@ is played through the buzzer to further discourage unauthorized access.<br />
 <br />
 Authorized Access:  <br/>
 <img src="https://i.imgur.com/VfatlaM.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+
 In this state, the parking system detects that a vehicle has approached the parking space and the user
 has signalled that they want to park by pressing a button on the remote control. The LCD display shows
 a message that says "Allowed :)" and the background color is set to green to indicate that the user is
