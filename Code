@@ -1,0 +1,70 @@
+#include <IRremote.h>
+#include "rgb_lcd.h"
+#include "SR04.h"
+
+#define TRIG_PIN 2
+#define ECHO_PIN 3
+#define IR_PIN 5
+#define BUZZER_PIN 4 // Changed to avoid conflict with ECHO_PIN
+#define BUZZER_FREQ 1000
+#define BUZZER_DURATION 500
+
+SR04 sr04 = SR04(ECHO_PIN, TRIG_PIN);
+IRrecv irrecv(IR_PIN);
+decode_results results;
+rgb_lcd lcd;
+bool is_allowed = false;
+unsigned long start_time = 0;
+
+void setup() {
+  Serial.begin(9600);
+  irrecv.enableIRIn(); // enable IR receiver
+  lcd.begin(16, 2);
+  lcd.setRGB(255, 255, 255); // set background to white
+  noTone(BUZZER_PIN); // turn off the buzzer
+}
+
+void loop() {
+  long distance = sr04.Distance();
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  if (distance <= 5) {
+    if (!is_allowed) {
+      lcd.setCursor(0, 0);
+      lcd.print("Hello, please");
+      lcd.setCursor(0, 1);
+      lcd.print("Press button");
+      lcd.setRGB(0, 191, 255); // set background to light blue
+    }
+
+    // Wait for IR signal
+    if (irrecv.decode(&results)) {
+      is_allowed = true;
+      start_time = millis();
+      lcd.setRGB(0, 255, 0); // set background to green
+      lcd.clear();
+      lcd.print("Allowed :)");
+      tone(BUZZER_PIN, BUZZER_FREQ, BUZZER_DURATION); // make a sound
+      irrecv.resume(); // receive the next IR signal
+    }
+  } else {
+    unsigned long elapsed_time = millis() - start_time;
+    if (elapsed_time > 6000) {
+      is_allowed = false;
+      lcd.setRGB(255, 0, 0); // set background to red
+      lcd.clear();
+      lcd.print("Not Allowed");
+      tone(BUZZER_PIN, 500, 9000); // make an alarm sound
+      delay(3000); // Wait 3 seconds before displaying message
+      lcd.setRGB(0, 191, 255); // set background to light blue
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Hello, please");
+      lcd.setCursor(0, 1);
+      lcd.print("Press button");
+      noTone(BUZZER_PIN); // turn off the buzzer
+    }
+  }
+  delay(100);
+}
