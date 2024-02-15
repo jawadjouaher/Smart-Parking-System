@@ -88,9 +88,9 @@ authorized to park in the space. Additionally, a confirmation sound is played th
 that the user can proceed with parking their vehicle.<br />
 <br />
 <h2> Detailed Visuals </h2>
-<img src="https://i.imgur.com/H6TqKcp.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/0LvR3jc.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/5qdrHVr.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/H6TqKcp.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/0LvR3jc.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/5qdrHVr.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
 <br />
 <h2>Challenges </h2>
 During the development of our project, we encountered several challenges that required us to
