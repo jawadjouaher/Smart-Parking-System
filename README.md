@@ -1,5 +1,4 @@
-<h1>JWipe - Disk Sanitization</h1>
-
+<h1>Smart Parking System</h1>
 
 
 <h2>WORK GOAL AND PERFORMANCE </h2>
@@ -33,24 +32,20 @@ Breadboard
 
 - <b>C++</b> 
 
-<h2>Languages and Utilities Used</h2>
-
-- <b>PowerShell</b> 
-- <b>Diskpart</b>
 
 <h2>Environments Used </h2>
 
-- <b>Windows 10</b> (21H2)
+- <b>Windows 11</b> 
 
 <h2>Program walk-through:</h2>
 
 <p align="center">
 Schematics: <br/>
-<img src="https://i.imgur.com/AtlEFKu.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/AtlEFKu.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 Assembly Drawing:  <br/>
-<img src="https://i.imgur.com/56VDnd1.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/7xutqkn.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
  <h2>CODE , OUTPUT AND PICTURE OF THE WORK:</h2>
@@ -124,7 +119,7 @@ within 5cm of the sensor. The user can then send an IR signal to the IR receiver
 object is not allowed to enter, a danger alarm is triggered using the buzzer. The LCD display is used to
 show status messages such as "Allowed" or "Not Allowed." The code uses the IRremote library for the
 IR receiver and the SR04 library for the ultrasonic sensor. The buzzer is controlled using the tone() and
-noTone() functions.
+noTone() functions.<br/>
 
 Initial Display: <br/>
 <img src="https://i.imgur.com/5HvyPzZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
